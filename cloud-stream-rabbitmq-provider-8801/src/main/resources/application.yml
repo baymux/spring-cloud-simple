@@ -14,8 +14,8 @@ spring:
               rabbitmq:
                 host: 111.231.89.200
                 port: 5672
-                username: baymux
-                password: baymux
+                username: baymu
+                password: baymu
       bindings: # 服务的整合处理
         output: # 这个名字是一个通道的名称
           destination: studyExchange # 表示使用Exchange名义定义

@@ -18,8 +18,8 @@ spring:
   rabbitmq:
     host: 111.231.89.200
     port: 5672
-    username: baymux
-    password: baymux
+    username: baymu
+    password: baymu
 
 
 eureka:

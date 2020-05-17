@@ -26,8 +26,8 @@ spring:
   rabbitmq:
     host: 111.231.89.200
     port: 5672
-    username: baymux
-    password: baymux
+    username: baymu
+    password: baymu
 
 # rabbitMq 相关配置，暴露bus刷新配置的端点
 # curl -X POST "http://127.0.0.1:3344/actuator/bus-refresh"  全局通知

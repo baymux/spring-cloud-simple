@@ -15,8 +15,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://111.231.89.200:3306/seata_order
-    username: baymux
-    password: BAY_mysql@33289
+    username: baymu
+    password: 111111
 
 
 feign:

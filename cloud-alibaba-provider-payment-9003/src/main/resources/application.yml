@@ -1,0 +1,17 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: cloud-alibaba-nacos-provider-payment
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 111.231.89.200:1111
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,40 @@
+server:
+  port: 3344
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/baymux/springcloud-config.git
+          search-paths: # 搜索目录
+            - springcloud-config
+          # 读取分支
+      label: master
+
+  # rabbitMQ相关配置
+  rabbitmq:
+    host: 111.231.89.200
+    port: 5672
+    username: baymux
+    password: baymux
+
+# rabbitMq 相关配置，暴露bus刷新配置的端点
+# curl -X POST "http://127.0.0.1:3344/actuator/bus-refresh"  全局通知
+# 只通知3355
+# curl -X POST "http://127.0.0.1:3344/actuator/bus-refresh/cloud-config-client:3355"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"

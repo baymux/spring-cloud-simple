@@ -1,0 +1,36 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders:
+        defaultRabbit: # 表示定义的名称，用与binding整合
+          type: rabbit # 消息组件类型
+          environment: # 设置rabbitmq相关的环境配置
+            spring:
+              rabbitmq:
+                host: 111.231.89.200
+                port: 5672
+                username: baymux
+                password: baymux
+      bindings: # 服务的整合处理
+        input: # 这个名字是一个通道的名称
+          destination: studyExchange # 表示使用Exchange名义定义
+          content-type: application/json # 设置消息类型，json
+          binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+          group: baymux
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 2 # 设置心跳间隔 默认30秒
+    instance-id: receive-8802.com
+    prefer-ip-address: true # 访问历经变为ip地址

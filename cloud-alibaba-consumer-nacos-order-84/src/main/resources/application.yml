@@ -1,0 +1,22 @@
+server:
+  port: 84
+
+spring:
+  application:
+    name: cloud-alibaba-nacos-consumer-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 111.231.89.200:1111
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+
+service-uri:
+  nacos-user-service: http://cloud-alibaba-nacos-provider-payment
+
+# 激活sentinel对feign支持
+feign:
+  sentinel:
+    enabled: true

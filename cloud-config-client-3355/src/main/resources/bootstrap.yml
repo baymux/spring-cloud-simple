@@ -1,0 +1,37 @@
+# bootstrap.yml 是系统级的，优先级更高
+# spring cloud 会创建一个Bootstrap context
+
+server:
+  port: 3355
+
+
+spring:
+  application:
+    name: cloud-config-client
+  cloud:
+    config:
+      label: master
+      name: config # 配置文件名称
+      profile: dev # 读取后缀名称
+      uri: http://localhost:3344 # 配置中心地址
+  # rabbitMQ相关配置
+  rabbitmq:
+    host: 111.231.89.200
+    port: 5672
+    username: baymux
+    password: baymux
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
